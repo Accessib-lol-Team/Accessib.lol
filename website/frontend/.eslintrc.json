@@ -1,0 +1,13 @@
+{
+    "extends": ["react-app", "plugin:jsx-a11y/recommended", "prettier"],
+    "plugins": ["jsx-a11y", "prettier"],
+    "rules": {
+        "prettier/prettier": [
+            "warn",
+            {
+                "endOfLine": "auto",
+                "tabWidth": 4
+            }
+        ]
+    }
+}
