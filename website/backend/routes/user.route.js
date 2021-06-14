@@ -14,12 +14,12 @@ exports.routesConfig = function (app) {
         // PermissionMiddleware.onlySameUserOrAdminCanDoThisAction,
         UsersController.getById
     ]);
-    app.get("/user/:email", [
+    app.get("/user/email/:email", [
         ValidationMiddleware.validJWTNeeded,
         // PermissionMiddleware.onlySameUserOrAdminCanDoThisAction,
         UsersController.getByEmail
     ]);
-    app.get("/user/:lolUsername", [
+    app.get("/user/lolUsername/:lolUsername", [
         ValidationMiddleware.validJWTNeeded,
         // PermissionMiddleware.onlySameUserOrAdminCanDoThisAction,
         UsersController.getByLoLUsername
