@@ -1,22 +1,22 @@
 const fortniteClassId = 5426;
 
 const interestingFeatures = [
-  'counters',
-  'death',
-  'items',
-  'kill',
-  'killed',
-  'killer',
-  'location',
-  'match_info',
+  // 'counters',
+  // 'death',
+  // 'items',
+  // 'kill',
+  // 'killed',
+  // 'killer',
+  // 'location',
+  // 'match_info',
   'match',
-  'me',
-  'phase',
-  'rank',
-  'revived',
-  'roster',
-  'team',
-  'live_client_data'
+  // 'me',
+  // 'phase',
+  // 'rank',
+  // 'revived',
+  // 'roster',
+  // 'team',
+  // 'live_client_data'
 ];
 
 const windowNames = {

@@ -53,14 +53,17 @@ class InGame extends AppWindow {
   private onNewEvents(e) {
     const shouldHighlight = e.events.some(event => {
       switch (event.name) {
-        case 'kill':
-        case 'death':
-        case 'assist':
-        case 'level':
-        case 'matchStart':
-        case 'matchEnd':
-        case 'gold':
-        case 'all_players':
+        // case 'kill':
+        // case 'death':
+        // case 'assist':
+        // case 'level':
+        // case 'matchStart':
+        // case 'matchEnd':
+        // case 'gold':
+        // case 'all_players':
+        //   return true;
+        case 'matchStarted':
+          alert("match started");
           return true;
       }
 
@@ -104,6 +107,23 @@ class InGame extends AppWindow {
     if (highlight) {
       line.className = 'highlight';
     }
+
+    var info = data;
+    console.log("game_info");
+    console.log(data.game_info);
+    console.log("teams");
+    console.log(data.game_info.teams);
+    var decoded = decodeURI(data.game_info.teams);
+    console.log("decoded?");
+    console.log(decoded);
+    const obj = JSON.parse(decoded);
+    console.log("parsed?");
+    console.log(obj);
+    for (let index = 0; index < 10; index++) {
+      console.log("summoner" + index);
+      console.log(obj[index].summoner);
+    }
+    
 
     const shouldAutoScroll = (log.scrollTop + log.offsetHeight) > (log.scrollHeight - 10);
 
