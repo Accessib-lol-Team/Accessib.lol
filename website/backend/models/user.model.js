@@ -63,7 +63,9 @@ exports.findByEmail = (email) => {
 };
 
 exports.findByLoLUserName = (lolUsername) => {
-    return User.findOne({ lolUsername: lolUsername }).then((result) => {
+    return User.findOne({
+        lolUsername: { $regex: new RegExp(lolUsername, "i") }
+    }).then((result) => {
         result = result.toJSON();
         delete result._id;
         delete result.__v;
