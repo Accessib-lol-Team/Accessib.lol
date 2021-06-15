@@ -110,7 +110,7 @@ class InGame extends AppWindow {
 
     var info = data;
     console.log("game_info");
-    console.log(data.game_info);
+    console.log(info.game_info);
     console.log("teams");
     console.log(data.game_info.teams);
     var decoded = decodeURI(data.game_info.teams);
@@ -119,11 +119,22 @@ class InGame extends AppWindow {
     const obj = JSON.parse(decoded);
     console.log("parsed?");
     console.log(obj);
-    for (let index = 0; index < 10; index++) {
+    // const player;
+    var player;
+    for (let index = 0; index < 1; index++) {
+      const x = fetch(`https://accessiblol-server-1.herokuapp.com/user/lolUsername/${obj[index].summoner}`, {
+        headers: {
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGM1NjhlN2VlZTU3YzY3MTQwMjBlZTAiLCJlbWFpbCI6InJrYWdhbWVyQGdtYWlsLmNvbSIsInByb3ZpZGVyIjoiZW1haWwiLCJuYW1lIjoidW5kZWZpbmVkIHVuZGVmaW5lZCIsInJlZnJlc2hLZXkiOiJPcTUrRnNOM3ZiUThTQ0VmRGM4WUJBPT0iLCJpYXQiOjE2MjM2MDc1MzN9.RmO39j7bH3T6HU1fG1tJXHrI0qRgXn0OcbzB2XyneoI"
+        }
+      })
+        .then((response) => response.json())
+        .then((temp) => {player = temp
+        console.log(player.pronouns)});//console.log(temp.pronouns));
       console.log("summoner" + index);
       console.log(obj[index].summoner);
+      // console.log(player.pronouns);
     }
-    
+    // console.log("pronouns "+ data.pronouns);
 
     const shouldAutoScroll = (log.scrollTop + log.offsetHeight) > (log.scrollHeight - 10);
 
