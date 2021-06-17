@@ -9,9 +9,9 @@ const LoginForm = ({ handleLogInSubmit }) => {
                     handleLogInSubmit(e.target[0].value, e.target[1].value);
                 }}
             >
-                <input type="email" />
+                <input type="email" placeholder="email" />
 
-                <input type="password" />
+                <input type="password" placeholder="password" />
 
                 <button type="submit">Login</button>
             </form>
