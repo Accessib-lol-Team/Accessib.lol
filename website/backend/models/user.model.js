@@ -73,6 +73,21 @@ exports.findByLoLUserName = (lolUsername) => {
     });
 };
 
+exports.findByLoLUserNameSafe = (lolUsername) => {
+    return User.findOne({
+        lolUsername: { $regex: new RegExp(lolUsername, "i") }
+    }).then((result) => {
+        result = result.toJSON();
+        delete result._id;
+        delete result.__v;
+        delete result.email;
+        delete result.password;
+        delete result.username;
+
+        return result;
+    });
+};
+
 exports.findById = (id) => {
     return User.findById(id).then((result) => {
         result = result.toJSON();

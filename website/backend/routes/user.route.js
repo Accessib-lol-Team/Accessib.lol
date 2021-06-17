@@ -24,6 +24,11 @@ exports.routesConfig = function (app) {
         // PermissionMiddleware.onlySameUserOrAdminCanDoThisAction,
         UsersController.getByLoLUsername
     ]);
+    app.get("/user/lolUsernameSafe/:lolUsernameSafe", [
+        ValidationMiddleware.validJWTNeeded,
+        // PermissionMiddleware.onlySameUserOrAdminCanDoThisAction,
+        UsersController.getByLoLUsernameSafe
+    ]);
     app.patch("/user/:userId", [
         ValidationMiddleware.validJWTNeeded,
         // PermissionMiddleware.onlySameUserOrAdminCanDoThisAction,
