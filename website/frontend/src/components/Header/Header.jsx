@@ -4,7 +4,7 @@ import "./Header.css";
 const Header = () => {
     return (
         <header className="page--header">
-            <Link to="/">
+            <Link to="/" className="logo--link">
                 <h1 className="logo">Accessib.lol</h1>
             </Link>
             <button>Login</button>

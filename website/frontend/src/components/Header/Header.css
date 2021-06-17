@@ -7,3 +7,8 @@
     position: fixed;
     padding: 0 10px;
 }
+
+.logo--link:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}

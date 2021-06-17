@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    
 }
 
 html {
@@ -10,8 +11,18 @@ body {
   width: 100%;
   min-width: 99vw;
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #root {
     min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Electrolize', sans-serif;
 }
