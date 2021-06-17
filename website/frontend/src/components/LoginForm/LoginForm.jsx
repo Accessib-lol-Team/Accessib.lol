@@ -1,12 +1,21 @@
-const LoginForm = () => {
+import AuthCard from "../AuthCard";
+
+const LoginForm = ({ handleLogInSubmit }) => {
     return (
-        <form>
-            <input type="email" />
+        <AuthCard>
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    handleLogInSubmit(e.target[0].value, e.target[1].value);
+                }}
+            >
+                <input type="email" />
 
-            <input type="password" />
+                <input type="password" />
 
-            <button type="submit">Login</button>
-        </form>
+                <button type="submit">Login</button>
+            </form>
+        </AuthCard>
     );
 };
 
