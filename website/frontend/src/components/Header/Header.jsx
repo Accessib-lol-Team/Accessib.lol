@@ -1,13 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
+    const history = useHistory();
+
     return (
         <header className="page--header">
-            <Link to="/" className="logo--link">
-                <h1 className="logo">Accessib.lol</h1>
-            </Link>
-            <button>Login</button>
+            <nav className="nav">
+                <Link to="/" className="nav--link">
+                    <h1 className="nav--logo">Accessib.lol</h1>
+                </Link>
+
+                <Link to="/profile" className="nav--link nav--links--sub">
+                    <h2 className="nav--profile">Profile</h2>
+                </Link>
+            </nav>
+
+            <button
+                onClick={() =>
+                    // Remove bearer token
+                    history.push("/login")
+                }
+            >
+                Login
+            </button>
         </header>
     );
 };

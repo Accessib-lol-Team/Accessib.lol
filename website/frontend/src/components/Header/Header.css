@@ -5,10 +5,33 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    padding: 0 10px;
+    padding: 1rem 10px 0;
 }
 
-.logo--link:hover {
+.nav {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+}
+
+.nav--link {
+    height: fit-content;
+}
+
+.nav--link:not(:first-child) {
+    margin-left: 1rem;
+}
+
+.nav--link:hover {
     text-decoration: none;
-    opacity: 0.8;
+    opacity: 0.6;
+}
+
+.nav--logo,
+.nav--profile {
+    margin: 0;
+}
+
+.nav--links--sub {
+    font-size: 0.95rem;
 }

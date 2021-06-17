@@ -6,7 +6,7 @@ const ContentPage = (props) => {
         <div>
             <Header />
 
-            <main class="content">{props.children}</main>
+            <main className="content">{props.children}</main>
         </div>
     );
 };
