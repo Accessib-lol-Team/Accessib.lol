@@ -1,12 +1,4 @@
 .home--content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    min-height: 100vh;
-}
-
-.home--content--box {
     max-width: 750px;
 }
 
@@ -23,6 +15,9 @@
 }
 
 .external-button {
+    width: 170px;
+    text-align: center;
+
     color: #fff;
     color: var(--form-text);
     background-color: #161f27;
