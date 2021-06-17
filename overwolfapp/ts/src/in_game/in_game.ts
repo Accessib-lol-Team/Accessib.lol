@@ -16,19 +16,23 @@ class InGame extends AppWindow {
   private _fortniteGameEventsListener: OWGamesEvents;
   private _eventsLog: HTMLElement;
   private _infoLog: HTMLElement;
+  private _usernames: HTMLElement;
+  private _pronouns: HTMLElement;
 
   private constructor() {
     super(windowNames.inGame);
 
     this._eventsLog = document.getElementById('eventsLog');
     this._infoLog = document.getElementById('infoLog');
+    this._usernames = document.getElementById('usernames');
+    this._pronouns = document.getElementById('pronouns');
 
     this.setToggleHotkeyBehavior();
     this.setToggleHotkeyText();
 
     this._fortniteGameEventsListener = new OWGamesEvents({
       onInfoUpdates: this.onInfoUpdates.bind(this),
-      onNewEvents: this.onNewEvents.bind(this)
+      onNewEvents: this.onNewEvents.bind(this),
     },
       interestingFeatures);
   }
@@ -48,6 +52,10 @@ class InGame extends AppWindow {
   private onInfoUpdates(info) {
     this.logLine(this._infoLog, info, false);
   }
+
+  // private onUsernameUpdates(info) {
+  //   this.logLine(this._usernames, info, false);
+  // }
 
   // Special events will be highlighted in the event log
   private onNewEvents(e) {
@@ -110,7 +118,7 @@ class InGame extends AppWindow {
 
     var info = data;
     console.log("game_info");
-    console.log(data.game_info);
+    console.log(info.game_info);
     console.log("teams");
     console.log(data.game_info.teams);
     var decoded = decodeURI(data.game_info.teams);
@@ -119,19 +127,41 @@ class InGame extends AppWindow {
     const obj = JSON.parse(decoded);
     console.log("parsed?");
     console.log(obj);
-    for (let index = 0; index < 10; index++) {
+    var player;
+    for (let index = 0; index < 1; index++) {
+      const x = fetch(`https://accessiblol-server-1.herokuapp.com/user/lolUsername/${obj[index].summoner}`, {
+        headers: {
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGM1NjhlN2VlZTU3YzY3MTQwMjBlZTAiLCJlbWFpbCI6InJrYWdhbWVyQGdtYWlsLmNvbSIsInByb3ZpZGVyIjoiZW1haWwiLCJuYW1lIjoidW5kZWZpbmVkIHVuZGVmaW5lZCIsInJlZnJlc2hLZXkiOiJPcTUrRnNOM3ZiUThTQ0VmRGM4WUJBPT0iLCJpYXQiOjE2MjM2MDc1MzN9.RmO39j7bH3T6HU1fG1tJXHrI0qRgXn0OcbzB2XyneoI"
+        }
+      })
+        .then((response) => response.json())
+        .then((temp) => {player = temp
+        console.log(player.pronouns)
+        const pronounJson = document.createElement('pre');
+        pronounJson.textContent = player.pronouns;
+        this._pronouns.appendChild(pronounJson);});
       console.log("summoner" + index);
       console.log(obj[index].summoner);
+      const usernameJson = document.createElement('pre');
+      usernameJson.textContent = obj[index].summoner;
+      // log.appendChild(line);
+      this._usernames.appendChild(usernameJson);
+      
     }
-    
-
     const shouldAutoScroll = (log.scrollTop + log.offsetHeight) > (log.scrollHeight - 10);
 
-    log.appendChild(line);
+    // log.appendChild(line);
 
     if (shouldAutoScroll) {
       log.scrollTop = log.scrollHeight;
     }
+    
+    overwolf.games.getRunningGameInfo(function()  {
+      console.log(arguments)
+      overwolf.windows.changePosition("in_game", arguments[0].width * 0.86 | 0, arguments[0].height * 0.51 | 0); //1920-270, 1080-525);
+    });
+    
+    
   }
 }
 
