@@ -16,19 +16,23 @@ class InGame extends AppWindow {
   private _fortniteGameEventsListener: OWGamesEvents;
   private _eventsLog: HTMLElement;
   private _infoLog: HTMLElement;
+  private _usernames: HTMLElement;
+  private _pronouns: HTMLElement;
 
   private constructor() {
     super(windowNames.inGame);
 
     this._eventsLog = document.getElementById('eventsLog');
     this._infoLog = document.getElementById('infoLog');
+    this._usernames = document.getElementById('usernames');
+    this._pronouns = document.getElementById('pronouns');
 
     this.setToggleHotkeyBehavior();
     this.setToggleHotkeyText();
 
     this._fortniteGameEventsListener = new OWGamesEvents({
       onInfoUpdates: this.onInfoUpdates.bind(this),
-      onNewEvents: this.onNewEvents.bind(this)
+      onNewEvents: this.onNewEvents.bind(this),
     },
       interestingFeatures);
   }
@@ -48,6 +52,10 @@ class InGame extends AppWindow {
   private onInfoUpdates(info) {
     this.logLine(this._infoLog, info, false);
   }
+
+  // private onUsernameUpdates(info) {
+  //   this.logLine(this._usernames, info, false);
+  // }
 
   // Special events will be highlighted in the event log
   private onNewEvents(e) {
@@ -119,7 +127,6 @@ class InGame extends AppWindow {
     const obj = JSON.parse(decoded);
     console.log("parsed?");
     console.log(obj);
-    // const player;
     var player;
     for (let index = 0; index < 1; index++) {
       const x = fetch(`https://accessiblol-server-1.herokuapp.com/user/lolUsername/${obj[index].summoner}`, {
@@ -129,16 +136,21 @@ class InGame extends AppWindow {
       })
         .then((response) => response.json())
         .then((temp) => {player = temp
-        console.log(player.pronouns)});//console.log(temp.pronouns));
+        console.log(player.pronouns)
+        const pronounJson = document.createElement('pre');
+        pronounJson.textContent = player.pronouns;
+        this._pronouns.appendChild(pronounJson);});
       console.log("summoner" + index);
       console.log(obj[index].summoner);
-      // console.log(player.pronouns);
+      const usernameJson = document.createElement('pre');
+      usernameJson.textContent = obj[index].summoner;
+      // log.appendChild(line);
+      this._usernames.appendChild(usernameJson);
+      
     }
-    // console.log("pronouns "+ data.pronouns);
-
     const shouldAutoScroll = (log.scrollTop + log.offsetHeight) > (log.scrollHeight - 10);
 
-    log.appendChild(line);
+    // log.appendChild(line);
 
     if (shouldAutoScroll) {
       log.scrollTop = log.scrollHeight;
