@@ -1,9 +1,25 @@
-.home--description {
+.home--content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 100vh;
+}
 
+.home--content--box {
+    max-width: 750px;
+}
+
+.home--description {
+    font-size: 1.25rem;
+    margin-bottom: 50px;
 }
 
 .external-buttons {
-
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    width: fit-content;
 }
 
 .external-button {
