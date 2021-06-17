@@ -54,11 +54,23 @@ userSchema.findById = function (cb) {
 const User = mongoose.model("Users", userSchema);
 
 exports.findByEmail = (email) => {
-    return User.find({ email: email });
+    return User.findOne({ email: email }).then((result) => {
+        result = result.toJSON();
+        delete result._id;
+        delete result.__v;
+        return result;
+    });
 };
 
 exports.findByLoLUserName = (lolUsername) => {
-    return User.find({ lolUsername: lolUsername });
+    return User.findOne({
+        lolUsername: { $regex: new RegExp(lolUsername, "i") }
+    }).then((result) => {
+        result = result.toJSON();
+        delete result._id;
+        delete result.__v;
+        return result;
+    });
 };
 
 exports.findById = (id) => {
