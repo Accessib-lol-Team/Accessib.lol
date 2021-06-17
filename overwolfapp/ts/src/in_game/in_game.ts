@@ -155,6 +155,13 @@ class InGame extends AppWindow {
     if (shouldAutoScroll) {
       log.scrollTop = log.scrollHeight;
     }
+    
+    overwolf.games.getRunningGameInfo(function()  {
+      console.log(arguments)
+      overwolf.windows.changePosition("in_game", arguments[0].width * 0.86 | 0, arguments[0].height * 0.51 | 0); //1920-270, 1080-525);
+    });
+    
+    
   }
 }
 
