@@ -20,12 +20,7 @@ function App() {
                     path="/profile"
                     component={Profile}
                 />
-                <AuthRoute
-                    authed={isAuthenticated}
-                    exact={true}
-                    path="/"
-                    component={Home}
-                />
+                <Route exact={true} path="/" component={Home} />
                 <Route path="*">
                     <Redirect to="/" />
                 </Route>

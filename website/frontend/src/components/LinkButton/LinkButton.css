@@ -1,0 +1,54 @@
+.link-button {
+    width: 170px;
+    text-align: center;
+
+    color: #fff;
+    color: var(--form-text);
+    background-color: #161f27;
+    background-color: var(--background);
+    font-family: inherit;
+    font-size: inherit;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    padding-right: 30px;
+    padding-left: 30px;
+    text-decoration: none !important;
+
+    transition:
+        background-color 0.1s linear,
+        border-color 0.1s linear,
+        color 0.1s linear,
+        box-shadow 0.1s linear,
+        transform 0.1s ease;
+    transition:
+        background-color var(--animation-duration) linear,
+        border-color var(--animation-duration) linear,
+        color var(--animation-duration) linear,
+        box-shadow var(--animation-duration) linear,
+        transform var(--animation-duration) ease;
+}
+
+.link-button:hover {
+    background: #324759;
+    background: var(--button-hover);
+}
+
+.link-button:focus {
+    background: #324759;
+    background: var(--button-hover);
+}
+
+.link-button:active {
+    transform: translateY(2px);
+}
+
+.link-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}

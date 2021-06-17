@@ -1,4 +1,5 @@
 import ContentPage from "../../components/ContentPage";
+import LinkButton from "../../components/LinkButton";
 import "./Home.css";
 
 const Home = () => {
@@ -18,19 +19,19 @@ const Home = () => {
                 <div className="external-buttons">
                     <button className="external-button">Download App</button>
 
-                    <a
-                        className="external-button"
+                    <LinkButton
                         href="https://github.com/Accessib-lol-Team/Accessib.lol"
+                        external
                     >
                         Github Repo
-                    </a>
+                    </LinkButton>
 
-                    <a
-                        className="external-button"
+                    <LinkButton
                         href="https://pridemakers.devpost.com/"
+                        external
                     >
                         Devpost Link
-                    </a>
+                    </LinkButton>
                 </div>
             </section>
         </ContentPage>
