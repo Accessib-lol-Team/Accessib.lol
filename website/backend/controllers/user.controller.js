@@ -50,6 +50,12 @@ exports.getByLoLUsername = (req, res) => {
     });
 };
 
+exports.getByLoLUsernameSafe = (req, res) => {
+    UserModel.findByLoLUserNameSafe(req.params.lolUsername).then((result) => {
+        res.status(200).send(result);
+    });
+};
+
 exports.patchById = (req, res) => {
     if (req.body.password) {
         let salt = crypto.randomBytes(16).toString("base64");
