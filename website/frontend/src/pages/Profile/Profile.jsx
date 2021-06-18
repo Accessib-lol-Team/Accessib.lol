@@ -4,14 +4,21 @@ import useToken from "../../hooks/useToken";
 import { getUserById, patchUser } from "../../services/api.services";
 import "./Profile.css";
 
-const Profile = () => {
+const Profile = ({ userId }) => {
     const { token } = useToken();
     const [userData, setUserData] = useState();
 
+    const loadUserData = async (token, userId) => {
+        const data = await getUserById(token, userId);
+
+        if (data.id) {
+            setUserData(data);
+        }
+    };
+
     useEffect(() => {
-        const data = getUserById(token, "id");
-        setUserData(data);
-    }, [token]);
+        loadUserData(token, userId);
+    }, [token, userId]);
 
     return (
         <ContentPage>
@@ -35,24 +42,28 @@ const Profile = () => {
                         className="profile--form--input"
                         type="email"
                         placeholder="email"
+                        defaultValue={userData ? userData.email : ""}
                     />
 
                     <input
                         className="profile--form--input"
                         type="password"
-                        placeholder="password"
+                        placeholder="Password"
+                        defaultValue={""}
                     />
 
                     <input
                         className="profile--form--input"
                         type="text"
                         placeholder="League of Legends Username"
+                        defaultValue={userData ? userData.lolUsername : ""}
                     />
 
                     <input
                         className="profile--form--input"
                         type="text"
                         placeholder="Pronouns"
+                        defaultValue={userData ? userData.pronouns : ""}
                     />
 
                     <button type="submit">Update</button>

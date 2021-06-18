@@ -37,7 +37,7 @@ const postSignUp = async (data) =>
             return error;
         });
 
-const getUserById = async (token, userId) => {
+const getUserById = async (token, userId) =>
     fetch(`${apiURL}/user/${userId}`, {
         method: "GET",
         headers: {
@@ -52,9 +52,8 @@ const getUserById = async (token, userId) => {
         .catch((error) => {
             return error;
         });
-};
 
-const patchUser = async (data, token) => {
+const patchUser = async (data, token) =>
     fetch(`${apiURL}/user`, {
         method: "PATCH",
         headers: {
@@ -70,6 +69,5 @@ const patchUser = async (data, token) => {
         .catch((error) => {
             return error;
         });
-};
 
 export { postLogin, postSignUp, getUserById, patchUser };

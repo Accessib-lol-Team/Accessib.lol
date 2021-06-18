@@ -4,11 +4,13 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
+import useUserId from "./hooks/useUserID";
 import useToken from "./hooks/useToken";
 import "./App.css";
 
 function App() {
     const { token, setToken } = useToken();
+    const { userId, setUserId } = useUserId();
     const isAuthenticated = token ? true : false;
 
     return (
@@ -16,17 +18,21 @@ function App() {
             <Switch>
                 <Route
                     path="/login"
-                    render={() => <Login setToken={setToken} />}
+                    render={() => (
+                        <Login setToken={setToken} setUserId={setUserId} />
+                    )}
                 />
                 <Route
                     path="/signup"
-                    render={() => <SignUp setToken={setToken} />}
+                    render={() => (
+                        <SignUp setToken={setToken} setUserId={setUserId} />
+                    )}
                 />
                 <AuthRoute
                     authed={isAuthenticated}
                     exact={true}
                     path="/profile"
-                    component={Profile}
+                    component={() => <Profile userId={userId} />}
                 />
                 <Route exact={true} path="/" component={Home} />
                 <Route path="*">
