@@ -5,14 +5,14 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
+import useToken from "./hooks/useToken";
 import "./App.css";
 
 function App() {
+    const { token, setToken } = useToken();
     const [isAuthenticated, setIsAuthenticated] = useState(
         localStorage.getItem("token") ? true : false
     );
-
-    // const isAuthenticated = localStorage.getItem("token") ? true : false;
 
     return (
         <>
