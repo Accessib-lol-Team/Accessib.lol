@@ -2,6 +2,7 @@ import { useHistory, Link } from "react-router-dom";
 import AuthPage from "../../components/AuthPage";
 import SignUpForm from "../../components/SignUpForm";
 import { postSignUp, postLogin } from "../../services/api.services.js";
+import "./SignUp.css";
 
 const SignUp = ({ setToken }) => {
     const history = useHistory();
@@ -43,7 +44,9 @@ const SignUp = ({ setToken }) => {
     return (
         <AuthPage>
             <SignUpForm handleSignUpSubmit={handleSignUpSubmit} />
-            Have an account? <Link to="login">Log In</Link>
+            <div className="signup--alt-link">
+                Have an account? <Link to="login">Log In</Link>
+            </div>
         </AuthPage>
     );
 };

@@ -1,0 +1,19 @@
+.login--header {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.login--form {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.login--form--input {
+    margin-bottom: 12px;
+}
+
+.login--form--textbox {
+    width: 100%;
+}

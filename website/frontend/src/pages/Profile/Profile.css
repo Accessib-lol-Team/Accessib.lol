@@ -6,12 +6,13 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    padding: 0 1.5rem; 
+    padding: 1rem 1.5rem; 
+    border-radius: var(--round-corners-value);
 }
 
 .profile--header {
     font-size: 1.5rem;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .profile--form {
@@ -19,14 +20,13 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-
 }
 
 .profile--form--input {
-    margin: 9px 0;
+    margin-bottom: 12px;
 }
 
-.profile--form-textbox {
+.profile--form--textbox {
     width: 100%;
 }
 

@@ -1,3 +1,7 @@
+:root {
+    --round-corners-value: 6px;
+}
+
 * {
     box-sizing: border-box;
     

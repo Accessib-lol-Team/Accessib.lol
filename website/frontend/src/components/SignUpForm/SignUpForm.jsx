@@ -1,9 +1,17 @@
 import AuthCard from "../AuthCard";
+import "./SignUpForm.css";
 
 const SignUpForm = ({ handleSignUpSubmit }) => {
     return (
         <AuthCard>
+            <h3 className="signup--header">
+                Hi There{" "}
+                <span role="img" aria-label="waving hand">
+                    👋
+                </span>
+            </h3>
             <form
+                className="signup--form"
                 onSubmit={(e) => {
                     e.preventDefault();
                     handleSignUpSubmit(
@@ -15,17 +23,39 @@ const SignUpForm = ({ handleSignUpSubmit }) => {
                     );
                 }}
             >
-                <input type="text" placeholder="username" />
+                <input
+                    className="signup--form--input signup--form--textbox"
+                    type="text"
+                    placeholder="username"
+                />
 
-                <input type="email" placeholder="email" />
+                <input
+                    className="signup--form--input signup--form--textbox"
+                    type="email"
+                    placeholder="email"
+                />
 
-                <input type="password" placeholder="password" />
+                <input
+                    className="signup--form--input signup--form--textbox"
+                    type="password"
+                    placeholder="password"
+                />
 
-                <input type="text" placeholder="League of Legends Username" />
+                <input
+                    className="signup--form--input signup--form--textbox"
+                    type="text"
+                    placeholder="League of Legends Username"
+                />
 
-                <input type="text" placeholder="Pronouns" />
+                <input
+                    className="signup--form--input signup--form--textbox"
+                    type="text"
+                    placeholder="Pronouns"
+                />
 
-                <button type="submit">Sign Up</button>
+                <button className="signup--form--submit" type="submit">
+                    Sign Up
+                </button>
             </form>
         </AuthCard>
     );
