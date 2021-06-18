@@ -14,7 +14,6 @@ const Login = ({ setToken }) => {
 
         if (data.accessToken) {
             setToken(data.accessToken);
-
             history.push("/profile");
         } else {
             alert("Incorrect login credentials");

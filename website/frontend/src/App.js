@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Switch, Route, Redirect } from "react-router";
 import AuthRoute from "./components/AuthRoute";
 import Home from "./pages/Home";
@@ -10,6 +9,7 @@ import "./App.css";
 
 function App() {
     const { token, setToken } = useToken();
+    const isAuthenticated = token ? true : false;
 
     return (
         <>
@@ -20,7 +20,7 @@ function App() {
                 />
                 <Route path="/signup" render={() => <SignUp />} />
                 <AuthRoute
-                    authed={token}
+                    authed={isAuthenticated}
                     exact={true}
                     path="/profile"
                     component={Profile}
