@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
-import useUserId from "./hooks/useUserID";
+import useUserId from "./hooks/useUserId";
 import useToken from "./hooks/useToken";
 import "./App.css";
 
