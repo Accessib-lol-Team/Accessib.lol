@@ -78,7 +78,6 @@ exports.findByLoLUserNameSafe = (lolUsername) => {
         delete result.email;
         delete result.password;
         delete result.username;
-
         return result;
     });
 };
