@@ -54,7 +54,7 @@ PORT=1127
 -   When you have Overwolf installed click through Settings -> About -> Development options.
 -   In the new packages window select "Load unpacked extensions..." and find the dist folder you downloaded before.
 -   Finally click "launch" and the app should open!
--   If you create and account on accessib.lol and launch a game of League of Legends, you will be able to see your pronouns and anyone else that has used Accessib.lol in the past!
+-   If you create and account on Accessib.lol and launch a game of League of Legends, you will be able to see your pronouns and anyone else that has used Accessib.lol in the past!
 
 ## Challenges we ran into
 
@@ -64,7 +64,7 @@ PORT=1127
 
 ### Ed
 
--   _Before this hackathon I have done very little in the terms of front end or web development. I had to learn a lot about JavaScript, HTML, and CSS to create the desktop app. Never before had I made a desktop app either. It took me more time then I would've liked to complete simple tasks such as making the API calls to the Accessib.lol servers. Luckily I had Riley to help me through a lot of these issues since he had a lot more experience then me._
+-   _Before this hackathon I had done very little in the terms of front end or web development. I had to learn a lot about JavaScript, HTML, and CSS to create the desktop app. Never before had I made a desktop app either. It took me more time then I would've liked to complete simple tasks such as making the API calls to the Accessib.lol servers. Luckily I had Riley to help me through a lot of these issues since he had a lot more experience then me._
 
 ## Accomplishments that we're proud of
 
