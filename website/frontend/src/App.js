@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Switch, Route, Redirect } from "react-router";
 import AuthRoute from "./components/AuthRoute";
 import Home from "./pages/Home";
@@ -7,12 +8,21 @@ import Profile from "./pages/Profile";
 import "./App.css";
 
 function App() {
-    const isAuthenticated = true;
+    const [isAuthenticated, setIsAuthenticated] = useState(
+        localStorage.getItem("token") ? true : false
+    );
+
+    // const isAuthenticated = localStorage.getItem("token") ? true : false;
 
     return (
         <>
             <Switch>
-                <Route path="/login" render={() => <Login />} />
+                <Route
+                    path="/login"
+                    render={() => (
+                        <Login setIsAuthenticated={setIsAuthenticated} />
+                    )}
+                />
                 <Route path="/signup" render={() => <SignUp />} />
                 <AuthRoute
                     authed={isAuthenticated}
