@@ -33,27 +33,43 @@ exports.list = (req, res) => {
 };
 
 exports.getById = (req, res) => {
-    UserModel.findById(req.params.userId).then((result) => {
-        res.status(200).send(result);
-    });
+    UserModel.findById(req.params.userId)
+        .then((result) => {
+            res.status(200).send(result);
+        })
+        .catch((error) => {
+            res.status(404).send(error);
+        });
 };
 
 exports.getByEmail = (req, res) => {
-    UserModel.findByEmail(req.params.email).then((result) => {
-        res.status(200).send(result);
-    });
+    UserModel.findByEmail(req.params.email)
+        .then((result) => {
+            res.status(200).send(result);
+        })
+        .catch((error) => {
+            res.status(404).send(error);
+        });
 };
 
 exports.getByLoLUsername = (req, res) => {
-    UserModel.findByLoLUserName(req.params.lolUsername).then((result) => {
-        res.status(200).send(result);
-    });
+    UserModel.findByLoLUserName(req.params.lolUsername)
+        .then((result) => {
+            res.status(200).send(result);
+        })
+        .catch((error) => {
+            res.status(404).send(error);
+        });
 };
 
 exports.getByLoLUsernameSafe = (req, res) => {
-    UserModel.findByLoLUserNameSafe(req.params.lolUsername).then((result) => {
-        res.status(200).send(result);
-    });
+    UserModel.findByLoLUserNameSafe(req.params.lolUsername)
+        .then((result) => {
+            res.status(200).send(result);
+        })
+        .catch((error) => {
+            res.status(404).send(error);
+        });
 };
 
 exports.patchById = (req, res) => {
