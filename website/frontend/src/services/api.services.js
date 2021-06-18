@@ -22,7 +22,7 @@ const postLogin = async (data) =>
         });
 
 const postSignUp = async (data) =>
-    fetch(`${apiURL}/users`, {
+    fetch(`${apiURL}/user`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

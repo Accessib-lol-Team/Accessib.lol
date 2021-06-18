@@ -18,7 +18,10 @@ function App() {
                     path="/login"
                     render={() => <Login setToken={setToken} />}
                 />
-                <Route path="/signup" render={() => <SignUp />} />
+                <Route
+                    path="/signup"
+                    render={() => <SignUp setToken={setToken} />}
+                />
                 <AuthRoute
                     authed={isAuthenticated}
                     exact={true}
