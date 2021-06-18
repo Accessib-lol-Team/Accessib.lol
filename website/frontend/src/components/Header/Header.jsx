@@ -16,7 +16,11 @@ const Header = ({ setToken }) => {
                 </Link>
 
                 <Link to="/profile" className="nav--link nav--links--sub">
-                    <h2 className="nav--profile">Profile</h2>
+                    <h2 className="nav--subhead">Profile</h2>
+                </Link>
+
+                <Link to="/demo" className="nav--link nav--links--sub">
+                    <h2 className="nav--subhead">Demo</h2>
                 </Link>
             </nav>
 
