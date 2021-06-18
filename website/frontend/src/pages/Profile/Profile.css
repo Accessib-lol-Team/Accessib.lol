@@ -6,12 +6,12 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    padding: 0 1.5rem; 
+    padding: 1rem 1.5rem; 
 }
 
 .profile--header {
     font-size: 1.5rem;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .profile--form {
