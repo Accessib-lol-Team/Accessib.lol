@@ -11,13 +11,7 @@ const Home = () => {
                     Both the communities of these games--as well as the
                     accessibility tools available within--aren't able to reach
                     the needs of every potential player.{" "}
-                    <a
-                        href="https://www.youtube.com/watch?v=RWQcuBigOj0"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        Video games are for everyone{" "}
-                    </a>
+                    <strong>Video games are for everyone </strong>
                     and this project seeks to augment inclusion and access in
                     one of the world's biggest titles: League of Legends.
                 </p>

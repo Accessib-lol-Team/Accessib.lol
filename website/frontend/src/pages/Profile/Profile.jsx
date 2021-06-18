@@ -118,9 +118,11 @@ const Profile = ({ setToken }) => {
                                 : "They/Them"
                         }
                     >
-                        {pronounsList.map((pronoun) => {
-                            return <option key={pronoun}>{pronoun}</option>;
-                        })}
+                        {userData &&
+                            userData.pronouns &&
+                            pronounsList.map((pronoun) => {
+                                return <option key={pronoun}>{pronoun}</option>;
+                            })}
                     </select>
                 )}
 
