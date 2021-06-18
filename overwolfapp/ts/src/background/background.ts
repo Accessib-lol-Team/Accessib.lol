@@ -1,4 +1,4 @@
-import { windowNames, fortniteClassId } from "../consts";
+import { windowNames, lolClassId } from "../consts";
 import {
   OWGames,
   OWGameListener,
@@ -15,15 +15,15 @@ import RunningGameInfo = overwolf.games.RunningGameInfo;
 class BackgroundController {
   private static _instance: BackgroundController;
   private _windows = {};
-  private _fortniteGameListener: OWGameListener;
+  private _lolGameListener: OWGameListener;
 
   private constructor() {
     // Populating the background controller's window dictionary
     this._windows[windowNames.desktop] = new OWWindow(windowNames.desktop);
     this._windows[windowNames.inGame] = new OWWindow(windowNames.inGame);
 
-    // When a Fortnite game is started or is ended, toggle the app's windows
-    this._fortniteGameListener = new OWGameListener({
+    // When a lol game is started or is ended, toggle the app's windows
+    this._lolGameListener = new OWGameListener({
       onGameStarted: this.toggleWindows.bind(this),
       onGameEnded: this.toggleWindows.bind(this)
     });
@@ -39,15 +39,15 @@ class BackgroundController {
   }
 
   // When running the app, start listening to games' status and decide which window should
-  // be launched first, based on whether Fortnite is currently running
+  // be launched first, based on whether lol is currently running
   public async run() {
-    this._fortniteGameListener.start();
-    const currWindow = await this.isFortniteRunning() ? windowNames.inGame : windowNames.desktop;
+    this._lolGameListener.start();
+    const currWindow = await this.islolRunning() ? windowNames.inGame : windowNames.desktop;
     this._windows[currWindow].restore();
   }
 
   private toggleWindows(info) {
-    if (!info || !this.isGameFortnite(info)) {
+    if (!info || !this.isGamelol(info)) {
       return;
     }
 
@@ -60,15 +60,15 @@ class BackgroundController {
     }
   }
 
-  private async isFortniteRunning(): Promise<boolean> {
+  private async islolRunning(): Promise<boolean> {
     const info = await OWGames.getRunningGameInfo();
 
-    return info && info.isRunning && this.isGameFortnite(info);
+    return info && info.isRunning && this.isGamelol(info);
   }
 
-  // Identify whether the RunningGameInfo object we have references Fortnite
-  private isGameFortnite(info: RunningGameInfo) {
-    return info.classId === fortniteClassId;
+  // Identify whether the RunningGameInfo object we have references lol
+  private isGamelol(info: RunningGameInfo) {
+    return info.classId === lolClassId;
   }
 }
 
