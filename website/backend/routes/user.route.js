@@ -24,7 +24,7 @@ exports.routesConfig = function (app) {
         // PermissionMiddleware.onlySameUserOrAdminCanDoThisAction,
         UsersController.getByLoLUsername
     ]);
-    app.get("/user/lolUsernameSafe/:lolUsernameSafe", [
+    app.get("/user/lolUsernameSafe/:lolUsername", [
         ValidationMiddleware.validJWTNeeded,
         // PermissionMiddleware.onlySameUserOrAdminCanDoThisAction,
         UsersController.getByLoLUsernameSafe
