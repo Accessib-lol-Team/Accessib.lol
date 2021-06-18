@@ -49,14 +49,14 @@
         "transparent": true,
         "override_on_update": true,
         "size": {
-          "width": 263,
-          "height": 162
+          "width": 400,
+          "height": 400
         },
         "min_size": {
-          "width": 263,
-          "height": 162
+          "width": 400,
+          "height": 400
         },
-        "max_size": {"width":263, "height": 162}
+        "max_size": {"width":400, "height": 400}
       }
     },
     "game_targeting": {

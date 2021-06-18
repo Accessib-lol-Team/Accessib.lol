@@ -128,8 +128,8 @@ class InGame extends AppWindow {
     console.log("parsed?");
     console.log(obj);
     var player;
-    for (let index = 0; index < 1; index++) {
-      const x = fetch(`https://accessiblol-server-1.herokuapp.com/user/lolUsername/${obj[index].summoner}`, {
+    for (let index = 0; index < 10; index++) {
+      const x = fetch(`http://accessiblol-server-1.herokuapp.com/user/lolUsername/${obj[index].summoner}`, {
         headers: {
           "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGM1NjhlN2VlZTU3YzY3MTQwMjBlZTAiLCJlbWFpbCI6InJrYWdhbWVyQGdtYWlsLmNvbSIsInByb3ZpZGVyIjoiZW1haWwiLCJuYW1lIjoidW5kZWZpbmVkIHVuZGVmaW5lZCIsInJlZnJlc2hLZXkiOiJPcTUrRnNOM3ZiUThTQ0VmRGM4WUJBPT0iLCJpYXQiOjE2MjM2MDc1MzN9.RmO39j7bH3T6HU1fG1tJXHrI0qRgXn0OcbzB2XyneoI"
         }
@@ -137,15 +137,27 @@ class InGame extends AppWindow {
         .then((response) => response.json())
         .then((temp) => {player = temp
         console.log(player.pronouns)
-        const pronounJson = document.createElement('pre');
+        // player.pronouns = player.pronouns + " ";
+        if(!player.pronouns)
+        {
+          player.pronouns = "N/A";
+          const usernameJson = document.createElement('div');
+          usernameJson.textContent = obj[index].summoner;
+          this._usernames.appendChild(usernameJson);
+        }
+        const pronounJson = document.createElement('div');
         pronounJson.textContent = player.pronouns;
-        this._pronouns.appendChild(pronounJson);});
+        this._pronouns.appendChild(pronounJson);
+        const usernameJson = document.createElement('div');
+        usernameJson.textContent = player.lolUsername;
+        this._usernames.appendChild(usernameJson);
+      });
       console.log("summoner" + index);
       console.log(obj[index].summoner);
-      const usernameJson = document.createElement('pre');
-      usernameJson.textContent = obj[index].summoner;
+      // const usernameJson = document.createElement('pre');
+      // usernameJson.textContent = obj[index].summoner;
       // log.appendChild(line);
-      this._usernames.appendChild(usernameJson);
+      // this._usernames.appendChild(usernameJson);
       
     }
     const shouldAutoScroll = (log.scrollTop + log.offsetHeight) > (log.scrollHeight - 10);
