@@ -4,9 +4,9 @@ Accessib.lol seeks to augment the League of Legends in-game experience to provid
 
 **Authors:**
 
-[Riley _(he/him)_](https://www.rileyabrahamson.com/)
+[Riley Abrahamson _(he/him)_](https://www.rileyabrahamson.com/)
 
-[Ed _(he/him)_](https://github.com/Coconut-Head)
+[Ed Swanson _(he/him)_](https://github.com/Coconut-Head)
 
 ## Inspiration
 
@@ -17,30 +17,40 @@ Accessib.lol was created to address lack of inclusion and accessibility features
 Accessib.lol is composed of three primary pieces:
 
 ### 💻 The Website
+- The website is the landing spot for new users of Accessib.lol. Here users can learn about the application, create an account, and download the desktop app.
 
 ### 🛠 The Server
+- The server hosts our API (Application Programming Interface). This communicates between the website, our database, and the desktop app. It protects user information by making sure only verified connections can be made between the project.
 
 ### 🎮 The Desktop App
-
--
+- The desktop app is what extends League of Legends to add new accessibility features. The desktop App hooks into the *Overwolf* platform to read events in-game and allow the custom software to respond.
 
 ## How we built it
 
 ### 💻 The Website
-
 -   The website is a `React` project leaning pretty light on extra packages. It makes use of modern ES6 JavaScript syntax, a few custom hooks, and a focus on easy navigation with `react-router`. For styling, we decided to go with vanilla `CSS3` to make it easier to translate styles between the website and the desktop Overwolf app. The styling is also scaffolded with the _best_ drag-and-drop CSS package: [water.css](https://watercss.kognise.dev/). For hosting, the site is hosted on a `Netlify` instance with a custom domain from `Namecheap`.
 
 ### 🛠 The Server
-
 -   The API server is built with `NodeJS` using `Express`. The API connects with a `MongoDB` data source for `NoSQL`-based data management--which works quite well with our stack. The server utilizes a `controller-model-route` architecture making it easy to extend and maintain as a project. The API server is hosted on a `Heroku` dyno.
 
 ### 🎮 The Desktop App
+-   The desktop app is built using `Overwolf`'s platform. As a custom app ontop of `Overwolf`, the tech stack consists of `HTML`, `CSS`, and `TypeScript`--just like a website! There are two halves of the app. One half is the out-of-game desktop app which gives directions on how to sign up and use the application and the other half is the in-game app.
 
--   The Desktop App is built using `Overwolf's` platform. There are two halves of the app. One half is the out-of-game desktop app which gives directions on how to sign up and use the application and the other half is the in-game app. This half will read who is in the game using `Overwolf's` API and will then send requests to the Accessib.lol server. Finally, the app will display the pronouns if any players have an account. Otherwise it will display N/A.
+## 👟 How to Run
+### 💻 The Website
+- The website can be run locally by using `npm`--if you do not have `npm` installed, you will need that first! Then, open a development terminal in the `frontend` folder. Run `npm install` to get all the packages and then `npm start` The React project will be run on a local development server in the web browser at `http://localhost:3000`. To close the live preview, simply press `CTRL + C` in the terminal the project was started it.  
 
-### How to Use
+### 🛠 The Server
+-  Just like the website, the back end also uses `npm`! First, create a `.env` file in the `backend` folder. Inside the file you will provide a database URI and a port number.
+```
+MONGO_URI="(Your database connection string)"
+PORT=1127
+```
+- Run `npm install` to get all the packages and then `npm start` The API will be live at `http://localhost:1127`. This can then be connected tool with an API tool like `Postman` or `Hoppscotch`. To close the live preview, simply press `CTRL + C` in the terminal the project was started it.  
 
--   To run Accessib.lol on your pc you will need to download both the _dist_ folder and the Overwolf App (https://www.overwolf.com/).
+
+### 🎮 The Desktop App
+-   To run Accessib.lol on your pc you will need to download both the _dist_ folder and the Overwolf App [https://www.overwolf.com/](https://www.overwolf.com/).
 -   When you have Overwolf installed click through Settings -> About -> Development options.
 -   In the new packages window select "Load unpacked extensions..." and find the dist folder you downloaded before.
 -   Finally click "launch" and the app should open!
