@@ -3,17 +3,17 @@ import {
   OWGamesEvents,
   OWHotkeys
 } from "@overwolf/overwolf-api-ts";
-import { interestingFeatures, hotkeys, windowNames, fortniteClassId } from "../consts";
+import { interestingFeatures, hotkeys, windowNames, lolClassId } from "../consts";
 import WindowState = overwolf.windows.WindowStateEx;
 
-// The window displayed in-game while a Fortnite game is running.
+// The window displayed in-game while a lol game is running.
 // It listens to all info events and to the game events listed in the consts.ts file
 // and writes them to the relevant log using <pre> tags.
 // The window also sets up Ctrl+F as the minimize/restore hotkey.
 // Like the background window, it also implements the Singleton design pattern.
 class InGame extends AppWindow {
   private static _instance: InGame;
-  private _fortniteGameEventsListener: OWGamesEvents;
+  private _lolGameEventsListener: OWGamesEvents;
   private _eventsLog: HTMLElement;
   private _infoLog: HTMLElement;
   private _usernames: HTMLElement;
@@ -30,7 +30,7 @@ class InGame extends AppWindow {
     this.setToggleHotkeyBehavior();
     this.setToggleHotkeyText();
 
-    this._fortniteGameEventsListener = new OWGamesEvents({
+    this._lolGameEventsListener = new OWGamesEvents({
       onInfoUpdates: this.onInfoUpdates.bind(this),
       onNewEvents: this.onNewEvents.bind(this),
     },
@@ -46,7 +46,7 @@ class InGame extends AppWindow {
   }
 
   public run() {
-    this._fortniteGameEventsListener.start();
+    this._lolGameEventsListener.start();
   }
 
   private onInfoUpdates(info) {
@@ -82,7 +82,7 @@ class InGame extends AppWindow {
 
   // Displays the toggle minimize/restore hotkey in the window header
   private async setToggleHotkeyText() {
-    const hotkeyText = await OWHotkeys.getHotkeyText(hotkeys.toggle, fortniteClassId);
+    const hotkeyText = await OWHotkeys.getHotkeyText(hotkeys.toggle, lolClassId);
     const hotkeyElem = document.getElementById('hotkey');
     hotkeyElem.textContent = hotkeyText;
   }
@@ -137,7 +137,6 @@ class InGame extends AppWindow {
         .then((response) => response.json())
         .then((temp) => {player = temp
         console.log(player.pronouns)
-        // player.pronouns = player.pronouns + " ";
         if(!player.pronouns)
         {
           player.pronouns = "N/A";
