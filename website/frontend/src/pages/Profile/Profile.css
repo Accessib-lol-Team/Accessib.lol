@@ -16,10 +16,21 @@
 
 .profile--form {
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
 }
 
 .profile--form--input {
-    width: 100%;
     margin: 9px 0;
+}
+
+.profile--form-textbox {
+    width: 100%;
+}
+
+.profile--form--submit {
+    width: min-content;
 }

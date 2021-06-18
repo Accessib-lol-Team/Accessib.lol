@@ -53,28 +53,28 @@ const Profile = ({ setToken }) => {
                 }}
             >
                 <input
-                    className="profile--form--input"
+                    className="profile--form--input profile--form-textbox"
                     type="text"
                     placeholder="username"
                     defaultValue={userData ? userData.username : ""}
                 />
 
                 <input
-                    className="profile--form--input"
+                    className="profile--form--input profile--form-textbox"
                     type="email"
                     placeholder="email"
                     defaultValue={userData ? userData.email : ""}
                 />
 
                 <input
-                    className="profile--form--input"
+                    className="profile--form--input profile--form-textbox"
                     type="password"
                     placeholder="Password"
                     defaultValue={""}
                 />
 
                 <input
-                    className="profile--form--input"
+                    className="profile--form--input profile--form-textbox"
                     type="text"
                     placeholder="League of Legends Username"
                     defaultValue={userData ? userData.lolUsername : ""}
@@ -82,6 +82,7 @@ const Profile = ({ setToken }) => {
 
                 {userData ? (
                     <select
+                        className="profile--form--input"
                         defaultValue={
                             userData
                                 ? pronounsList.find(
@@ -100,7 +101,9 @@ const Profile = ({ setToken }) => {
                     ""
                 )}
 
-                <button type="submit">Update</button>
+                <button className="profile--form--submit" type="submit">
+                    Update
+                </button>
             </form>
         </section>
     );
