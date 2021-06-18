@@ -77,53 +77,70 @@ const Profile = ({ setToken }) => {
                     );
                 }}
             >
-                <input
-                    className="profile--form--input profile--form--textbox"
-                    type="text"
-                    placeholder="username"
-                    defaultValue={userData ? userData.username : ""}
-                />
+                <label className="profile--form--label">
+                    Name:
+                    <input
+                        className="profile--form--input profile--form--textbox"
+                        type="text"
+                        placeholder="Username"
+                        defaultValue={userData ? userData.username : ""}
+                    />
+                </label>
 
-                <input
-                    className="profile--form--input profile--form--textbox"
-                    type="email"
-                    placeholder="email"
-                    defaultValue={userData ? userData.email : ""}
-                />
+                <label className="profile--form--label">
+                    Email:
+                    <input
+                        className="profile--form--input profile--form--textbox"
+                        type="email"
+                        placeholder="Email"
+                        defaultValue={userData ? userData.email : ""}
+                    />
+                </label>
 
-                <input
-                    className="profile--form--input profile--form--textbox"
-                    type="password"
-                    placeholder="Password"
-                    defaultValue={""}
-                />
+                <label className="profile--form--label">
+                    Password:
+                    <input
+                        className="profile--form--input profile--form--textbox"
+                        type="password"
+                        placeholder="Password"
+                        defaultValue={""}
+                    />
+                </label>
 
-                <input
-                    className="profile--form--input profile--form--textbox"
-                    type="text"
-                    placeholder="League of Legends Username"
-                    defaultValue={userData ? userData.lolUsername : ""}
-                />
+                <label className="profile--form--label">
+                    League of Legends Username:
+                    <input
+                        className="profile--form--input profile--form--textbox"
+                        type="text"
+                        placeholder="League of Legends Username"
+                        defaultValue={userData ? userData.lolUsername : ""}
+                    />
+                </label>
 
                 {userData && userData.pronouns && (
-                    <select
-                        className="profile--form--input"
-                        defaultValue={
-                            userData
-                                ? pronounsList.find(
-                                      (pronoun) =>
-                                          pronoun.toLowerCase() ===
-                                          userData.pronouns.toLowerCase()
-                                  )
-                                : "They/Them"
-                        }
-                    >
-                        {userData &&
-                            userData.pronouns &&
-                            pronounsList.map((pronoun) => {
-                                return <option key={pronoun}>{pronoun}</option>;
-                            })}
-                    </select>
+                    <label className="profile--form--label">
+                        Pronouns:
+                        <select
+                            className="profile--form--input"
+                            defaultValue={
+                                userData
+                                    ? pronounsList.find(
+                                          (pronoun) =>
+                                              pronoun.toLowerCase() ===
+                                              userData.pronouns.toLowerCase()
+                                      )
+                                    : "They/Them"
+                            }
+                        >
+                            {userData &&
+                                userData.pronouns &&
+                                pronounsList.map((pronoun) => {
+                                    return (
+                                        <option key={pronoun}>{pronoun}</option>
+                                    );
+                                })}
+                        </select>
+                    </label>
                 )}
 
                 <button className="profile--form--submit" type="submit">

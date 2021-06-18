@@ -11,6 +11,10 @@
     align-items: center;
 }
 
+.signup--form--label {
+    width: 100%;
+}
+
 .signup--form--input {
     margin-bottom: 12px;
 }
