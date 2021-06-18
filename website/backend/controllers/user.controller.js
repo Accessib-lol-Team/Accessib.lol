@@ -83,7 +83,7 @@ exports.patchById = (req, res) => {
     }
 
     UserModel.patchUser(req.params.userId, req.body).then((result) => {
-        res.status(200).send(result);
+        res.status(200).send({ id: result._id });
     });
 };
 
