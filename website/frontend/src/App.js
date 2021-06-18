@@ -1,5 +1,6 @@
 import { Switch, Route, Redirect } from "react-router";
 import AuthRoute from "./components/AuthRoute";
+import ContentPage from "./components/ContentPage";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
@@ -10,7 +11,7 @@ import "./App.css";
 
 function App() {
     const { token, setToken } = useToken();
-    const { userId, setUserId } = useUserId();
+    const { setUserId } = useUserId();
     const isAuthenticated = token ? true : false;
 
     return (
@@ -32,9 +33,21 @@ function App() {
                     authed={isAuthenticated}
                     exact={true}
                     path="/profile"
-                    component={() => <Profile userId={userId} />}
+                    component={() => (
+                        <ContentPage setToken={setToken}>
+                            <Profile />
+                        </ContentPage>
+                    )}
                 />
-                <Route exact={true} path="/" component={Home} />
+                <Route
+                    exact={true}
+                    path="/"
+                    render={() => (
+                        <ContentPage setToken={setToken}>
+                            <Home />
+                        </ContentPage>
+                    )}
+                />
                 <Route path="*">
                     <Redirect to="/" />
                 </Route>

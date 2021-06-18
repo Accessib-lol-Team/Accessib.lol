@@ -1,9 +1,10 @@
 import { Link, useHistory } from "react-router-dom";
 import useToken from "../../hooks/useToken";
-import { deleteToken } from "../../services/token.services";
+import { getToken, deleteToken } from "../../services/token.services";
+import { deleteUserId } from "../../services/userId.services";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ setToken }) => {
     const history = useHistory();
     const { token } = useToken();
 
@@ -23,6 +24,8 @@ const Header = () => {
                 onClick={() => {
                     if (token) {
                         deleteToken();
+                        deleteUserId();
+                        setToken(getToken());
                         history.push("/");
                     } else {
                         history.push("/login");
