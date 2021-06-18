@@ -37,4 +37,39 @@ const postSignUp = async (data) =>
             return error;
         });
 
-export { postLogin, postSignUp };
+const getUserById = async (token, userId) => {
+    fetch(`${apiURL}/user/${userId}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            return data;
+        })
+        .catch((error) => {
+            return error;
+        });
+};
+
+const patchUser = async (data, token) => {
+    fetch(`${apiURL}/user`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            return data;
+        })
+        .catch((error) => {
+            return error;
+        });
+};
+
+export { postLogin, postSignUp, getUserById, patchUser };

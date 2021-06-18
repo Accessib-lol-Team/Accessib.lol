@@ -1,11 +1,22 @@
+import { useState, useEffect } from "react";
 import ContentPage from "../../components/ContentPage";
+import useToken from "../../hooks/useToken";
+import { getUserById, patchUser } from "../../services/api.services";
 import "./Profile.css";
 
 const Profile = () => {
+    const { token } = useToken();
+    const [userData, setUserData] = useState();
+
+    useEffect(() => {
+        const data = getUserById(token, "id");
+        setUserData(data);
+    }, [token]);
+
     return (
         <ContentPage>
             <section className="profile--content">
-                <h3>Your Details</h3>
+                <h3 className="profile--header">Your Details</h3>
                 <form
                     className="profile--form"
                     onSubmit={(e) => {
@@ -17,6 +28,7 @@ const Profile = () => {
                         className="profile--form--input"
                         type="text"
                         placeholder="username"
+                        defaultValue={userData ? userData.username : ""}
                     />
 
                     <input
