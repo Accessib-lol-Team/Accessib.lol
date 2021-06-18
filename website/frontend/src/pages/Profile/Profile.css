@@ -7,6 +7,7 @@
     justify-content: center;
     align-items: center;
     padding: 1rem 1.5rem; 
+    border-radius: var(--round-corners-value);
 }
 
 .profile--header {
@@ -19,14 +20,13 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-
 }
 
 .profile--form--input {
-    margin: 9px 0;
+    margin-bottom: 12px;
 }
 
-.profile--form-textbox {
+.profile--form--textbox {
     width: 100%;
 }
 

@@ -1,0 +1,19 @@
+.signup--header {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.signup--form {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.signup--form--input {
+    margin-bottom: 12px;
+}
+
+.signup--form--textbox {
+    width: 100%;
+}

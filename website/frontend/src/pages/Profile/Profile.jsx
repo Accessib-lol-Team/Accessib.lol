@@ -2,19 +2,10 @@ import { useState, useEffect } from "react";
 import useToken from "../../hooks/useToken";
 import useUserId from "../../hooks/useUserId";
 import { getUserById, patchUser } from "../../services/api.services";
+import getPronouns from "../../services/pronouns.services";
 import "./Profile.css";
 
-const pronounsList = [
-    "They/Them",
-    "He/Him",
-    "She/Her",
-    "He/They",
-    "She/They",
-    "Ze/Hir",
-    "Xe/Xyr",
-    "Neopronouns",
-    "Other",
-];
+const pronounsList = getPronouns();
 
 const Profile = ({ setToken }) => {
     const { token } = useToken();
@@ -87,34 +78,34 @@ const Profile = ({ setToken }) => {
                 }}
             >
                 <input
-                    className="profile--form--input profile--form-textbox"
+                    className="profile--form--input profile--form--textbox"
                     type="text"
                     placeholder="username"
                     defaultValue={userData ? userData.username : ""}
                 />
 
                 <input
-                    className="profile--form--input profile--form-textbox"
+                    className="profile--form--input profile--form--textbox"
                     type="email"
                     placeholder="email"
                     defaultValue={userData ? userData.email : ""}
                 />
 
                 <input
-                    className="profile--form--input profile--form-textbox"
+                    className="profile--form--input profile--form--textbox"
                     type="password"
                     placeholder="Password"
                     defaultValue={""}
                 />
 
                 <input
-                    className="profile--form--input profile--form-textbox"
+                    className="profile--form--input profile--form--textbox"
                     type="text"
                     placeholder="League of Legends Username"
                     defaultValue={userData ? userData.lolUsername : ""}
                 />
 
-                {userData ? (
+                {userData && userData.pronouns && (
                     <select
                         className="profile--form--input"
                         defaultValue={
@@ -122,7 +113,7 @@ const Profile = ({ setToken }) => {
                                 ? pronounsList.find(
                                       (pronoun) =>
                                           pronoun.toLowerCase() ===
-                                          userData.pronouns
+                                          userData.pronouns.toLowerCase()
                                   )
                                 : "They/Them"
                         }
@@ -131,8 +122,6 @@ const Profile = ({ setToken }) => {
                             return <option key={pronoun}>{pronoun}</option>;
                         })}
                     </select>
-                ) : (
-                    ""
                 )}
 
                 <button className="profile--form--submit" type="submit">

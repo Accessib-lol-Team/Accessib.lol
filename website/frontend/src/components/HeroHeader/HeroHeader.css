@@ -1,0 +1,13 @@
+.hero--header {
+    --header-font-size: 6rem;
+
+    font-size: var(--header-font-size);
+    margin: 0;
+    margin-top: calc(var(--header-font-size) * -1);
+    margin-bottom: calc(var(--header-font-size) * 0.25);
+}
+
+.hero--link:hover {
+    text-decoration: none;
+    opacity: 0.6;
+}

@@ -1,5 +1,7 @@
+import "./AuthCard.css";
+
 const AuthCard = (props) => {
-    return <section>{props.children}</section>;
+    return <section className="auth--content">{props.children}</section>;
 };
 
 export default AuthCard;
