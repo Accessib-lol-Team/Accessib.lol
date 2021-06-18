@@ -10,22 +10,17 @@ import "./App.css";
 
 function App() {
     const { token, setToken } = useToken();
-    const [isAuthenticated, setIsAuthenticated] = useState(
-        localStorage.getItem("token") ? true : false
-    );
 
     return (
         <>
             <Switch>
                 <Route
                     path="/login"
-                    render={() => (
-                        <Login setIsAuthenticated={setIsAuthenticated} />
-                    )}
+                    render={() => <Login setToken={setToken} />}
                 />
                 <Route path="/signup" render={() => <SignUp />} />
                 <AuthRoute
-                    authed={isAuthenticated}
+                    authed={token}
                     exact={true}
                     path="/profile"
                     component={Profile}

@@ -3,7 +3,7 @@ import AuthPage from "../../components/AuthPage";
 import LoginForm from "../../components/LoginForm";
 import { postLogin } from "../../services/api.services";
 
-const Login = ({ setIsAuthenticated }) => {
+const Login = ({ setToken }) => {
     const history = useHistory();
 
     const logIn = async (email, password) => {
@@ -13,7 +13,7 @@ const Login = ({ setIsAuthenticated }) => {
         });
 
         if (data.accessToken) {
-            localStorage.setItem("token", data.accessToken);
+            setToken(data.accessToken);
 
             history.push("/profile");
         } else {
@@ -23,7 +23,6 @@ const Login = ({ setIsAuthenticated }) => {
 
     const handleLogInSubmit = (email, password) => {
         logIn(email, password);
-        setIsAuthenticated(true);
     };
 
     return (
