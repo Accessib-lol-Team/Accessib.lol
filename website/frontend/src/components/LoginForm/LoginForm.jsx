@@ -12,17 +12,22 @@ const LoginForm = ({ handleLogInSubmit }) => {
                     handleLogInSubmit(e.target[0].value, e.target[1].value);
                 }}
             >
-                <input
-                    className="login--form--input login--form--textbox"
-                    type="email"
-                    placeholder="email"
-                />
-
-                <input
-                    className="login--form--input login--form--textbox"
-                    type="password"
-                    placeholder="password"
-                />
+                <label className="login--form--label">
+                    Email:
+                    <input
+                        className="login--form--input login--form--textbox"
+                        type="email"
+                        placeholder="Email"
+                    />
+                </label>
+                <label className="login--form--label">
+                    Password:
+                    <input
+                        className="login--form--input login--form--textbox"
+                        type="password"
+                        placeholder="Password"
+                    />
+                </label>
 
                 <button className="login--form--submit" type="submit">
                     Login

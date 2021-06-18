@@ -11,6 +11,10 @@
     align-items: center;
 }
 
+.login--form--label {
+    width: 100%;
+}
+
 .login--form--input {
     margin-bottom: 12px;
 }

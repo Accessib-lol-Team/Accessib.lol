@@ -22,6 +22,10 @@
     align-items: center;
 }
 
+.profile--form--label {
+    width: 100%;
+}
+
 .profile--form--input {
     margin-bottom: 12px;
 }
