@@ -5,6 +5,7 @@ const Profile = () => {
     return (
         <ContentPage>
             <section className="profile--content">
+                <h3>Your Details</h3>
                 <form
                     className="profile--form"
                     onSubmit={(e) => {

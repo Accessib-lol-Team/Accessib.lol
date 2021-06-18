@@ -1,12 +1,12 @@
 .profile--content {
-    max-width: 400px;
+    max-width: 380px;
     width: 100%;
     background-color: #1a242f;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    padding: 1.5rem 2rem; 
+    padding: 0 1.5rem; 
 }
 
 .profile--form {
