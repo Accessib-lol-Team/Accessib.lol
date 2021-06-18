@@ -119,12 +119,9 @@ exports.list = (perPage, page) => {
 };
 
 exports.patchUser = (id, userData) => {
-    return User.findOneAndUpdate(
-        {
-            _id: id
-        },
-        userData
-    );
+    return User.findOneAndUpdate({
+        _id: id
+    });
 };
 
 exports.removeById = (userId) => {

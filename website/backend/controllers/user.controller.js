@@ -82,8 +82,8 @@ exports.patchById = (req, res) => {
         req.body.password = salt + "$" + hash;
     }
 
-    UserModel.patchUser(req.params.userId, req.body).then(() => {
-        res.status(204).send({});
+    UserModel.patchUser(req.params.userId, req.body).then((result) => {
+        res.status(200).send(result);
     });
 };
 
