@@ -7,7 +7,6 @@ const SignUp = ({ setToken }) => {
     const history = useHistory();
 
     const SignUp = async (username, email, password, lolUsername, pronouns) => {
-        console.log({ username, email, password, lolUsername, pronouns });
         const data = await postSignUp({
             username: username,
             email: email,

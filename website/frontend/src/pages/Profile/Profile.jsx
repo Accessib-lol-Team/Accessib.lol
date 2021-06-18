@@ -22,7 +22,7 @@ const Profile = ({ setToken }) => {
 
     const [userData, setUserData] = useState();
 
-    const loadUserData = async (token, userId) => {
+    const loadUser = async (token, userId) => {
         const data = await getUserById(token, userId);
 
         if (data.id) {
@@ -30,17 +30,45 @@ const Profile = ({ setToken }) => {
         }
     };
 
-    useEffect(() => {
-        loadUserData(token, userId);
-    }, [token, userId]);
+    const updateUser = async (
+        username,
+        email,
+        password,
+        lolUsername,
+        pronouns
+    ) => {
+        if (!password) {
+            alert("Please enter your password");
+        } else {
+            const data = await patchUser(token, userId, {
+                username,
+                email,
+                password,
+                lolUsername,
+                pronouns,
+            });
 
-    if (userData) {
-        console.log(
-            pronounsList.find(
-                (pronoun) => pronoun.toLowerCase() === userData.pronouns
-            )
-        );
-    }
+            if (data.id) {
+                alert("Profile updated");
+            } else {
+                alert("Incorrect form info");
+            }
+        }
+    };
+
+    const handleUpdateUser = (
+        username,
+        email,
+        password,
+        lolUsername,
+        pronouns
+    ) => {
+        updateUser(username, email, password, lolUsername, pronouns);
+    };
+
+    useEffect(() => {
+        loadUser(token, userId);
+    }, [token, userId]);
 
     return (
         <section className="profile--content">
@@ -49,7 +77,13 @@ const Profile = ({ setToken }) => {
                 className="profile--form"
                 onSubmit={(e) => {
                     e.preventDefault();
-                    // Update account
+                    handleUpdateUser(
+                        e.target[0].value,
+                        e.target[1].value,
+                        e.target[2].value,
+                        e.target[3].value,
+                        e.target[4].value
+                    );
                 }}
             >
                 <input

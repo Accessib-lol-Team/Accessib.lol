@@ -53,8 +53,8 @@ const getUserById = async (token, userId) =>
             return error;
         });
 
-const patchUser = async (data, token) =>
-    fetch(`${apiURL}/user`, {
+const patchUser = async (token, userId, data) =>
+    fetch(`${apiURL}/user/${userId}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
