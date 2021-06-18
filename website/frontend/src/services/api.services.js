@@ -1,4 +1,4 @@
-const apiURL = "https://giphy-gallery-server.herokuapp.com";
+const apiURL = "https://accessiblol-server-1.herokuapp.com";
 
 const postLogin = async (data) =>
     fetch(`${apiURL}/auth/login`, {
