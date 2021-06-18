@@ -112,7 +112,7 @@ exports.list = (perPage, page) => {
     });
 };
 
-exports.patchUser = (id, userData) => {
+exports.patchUser = (id) => {
     return User.findOneAndUpdate({
         _id: id
     });

@@ -67,9 +67,8 @@ exports.getByLoLUsernameSafe = (req, res) => {
         .then((result) => {
             res.status(200).send(result);
         })
-        .catch((error) => {
-            result.lolUsername = " ";
-            res.status(404).send(result);
+        .catch(() => {
+            res.status(404).send("");
         });
 };
 
