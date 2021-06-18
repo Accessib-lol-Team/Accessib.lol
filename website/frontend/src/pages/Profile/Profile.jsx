@@ -4,6 +4,18 @@ import useUserId from "../../hooks/useUserId";
 import { getUserById, patchUser } from "../../services/api.services";
 import "./Profile.css";
 
+const pronounsList = [
+    "They/Them",
+    "He/Him",
+    "She/Her",
+    "He/They",
+    "She/They",
+    "Ze/Hir",
+    "Xe/Xyr",
+    "Neopronouns",
+    "Other",
+];
+
 const Profile = ({ setToken }) => {
     const { token } = useToken();
     const { userId } = useUserId();
@@ -21,6 +33,14 @@ const Profile = ({ setToken }) => {
     useEffect(() => {
         loadUserData(token, userId);
     }, [token, userId]);
+
+    if (userData) {
+        console.log(
+            pronounsList.find(
+                (pronoun) => pronoun.toLowerCase() === userData.pronouns
+            )
+        );
+    }
 
     return (
         <section className="profile--content">
@@ -60,12 +80,25 @@ const Profile = ({ setToken }) => {
                     defaultValue={userData ? userData.lolUsername : ""}
                 />
 
-                <input
-                    className="profile--form--input"
-                    type="text"
-                    placeholder="Pronouns"
-                    defaultValue={userData ? userData.pronouns : ""}
-                />
+                {userData ? (
+                    <select
+                        defaultValue={
+                            userData
+                                ? pronounsList.find(
+                                      (pronoun) =>
+                                          pronoun.toLowerCase() ===
+                                          userData.pronouns
+                                  )
+                                : "They/Them"
+                        }
+                    >
+                        {pronounsList.map((pronoun) => {
+                            return <option key={pronoun}>{pronoun}</option>;
+                        })}
+                    </select>
+                ) : (
+                    ""
+                )}
 
                 <button type="submit">Update</button>
             </form>
