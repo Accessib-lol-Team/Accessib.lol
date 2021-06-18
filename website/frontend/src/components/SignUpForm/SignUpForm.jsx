@@ -1,5 +1,8 @@
 import AuthCard from "../AuthCard";
+import getPronouns from "../../services/pronouns.services";
 import "./SignUpForm.css";
+
+const pronounsList = getPronouns();
 
 const SignUpForm = ({ handleSignUpSubmit }) => {
     return (
@@ -47,11 +50,11 @@ const SignUpForm = ({ handleSignUpSubmit }) => {
                     placeholder="League of Legends Username"
                 />
 
-                <input
-                    className="signup--form--input signup--form--textbox"
-                    type="text"
-                    placeholder="Pronouns"
-                />
+                <select className="signup--form--input">
+                    {pronounsList.map((pronoun) => {
+                        return <option key={pronoun}>{pronoun}</option>;
+                    })}
+                </select>
 
                 <button className="signup--form--submit" type="submit">
                     Sign Up

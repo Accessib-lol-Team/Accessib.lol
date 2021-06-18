@@ -1,6 +1,7 @@
 .login--header {
     font-size: 2rem;
     margin: 0;
+    margin-bottom: 0.5rem;
 }
 
 .login--form {
