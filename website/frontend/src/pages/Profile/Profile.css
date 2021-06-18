@@ -1,20 +1,35 @@
 .profile--content {
-    max-width: 400px;
+    max-width: 380px;
     width: 100%;
     background-color: #1a242f;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    padding: 1.5rem 2rem; 
+    padding: 0 1.5rem; 
+}
+
+.profile--header {
+    font-size: 1.5rem;
+    margin-bottom: 0;
 }
 
 .profile--form {
     width: 100%;
-    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
 }
 
 .profile--form--input {
+    margin: 9px 0;
+}
+
+.profile--form-textbox {
     width: 100%;
-    margin: 8px 0;
+}
+
+.profile--form--submit {
+    width: min-content;
 }

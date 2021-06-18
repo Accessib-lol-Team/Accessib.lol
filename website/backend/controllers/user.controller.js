@@ -67,9 +67,8 @@ exports.getByLoLUsernameSafe = (req, res) => {
         .then((result) => {
             res.status(200).send(result);
         })
-        .catch((error) => {
-            result.lolUsername = " ";
-            res.status(404).send(result);
+        .catch(() => {
+            res.status(404).send("");
         });
 };
 
@@ -83,8 +82,8 @@ exports.patchById = (req, res) => {
         req.body.password = salt + "$" + hash;
     }
 
-    UserModel.patchUser(req.params.userId, req.body).then(() => {
-        res.status(204).send({});
+    UserModel.patchUser(req.params.userId, req.body).then((result) => {
+        res.status(200).send({ id: result._id });
     });
 };
 

@@ -1,18 +1,20 @@
 import { useHistory, Link } from "react-router-dom";
 import AuthPage from "../../components/AuthPage";
 import LoginForm from "../../components/LoginForm";
+import { postLogin } from "../../services/api.services";
 
-const Login = () => {
+const Login = ({ setToken, setUserId }) => {
     const history = useHistory();
 
     const logIn = async (email, password) => {
-        const data = {
+        const data = await postLogin({
             email: email,
             password: password,
-        };
+        });
 
         if (data.accessToken) {
-            // write token to storage
+            setToken(data.accessToken);
+            setUserId(data.userId);
             history.push("/profile");
         } else {
             alert("Incorrect login credentials");

@@ -1,8 +1,12 @@
 import { Link, useHistory } from "react-router-dom";
+import useToken from "../../hooks/useToken";
+import { getToken, deleteToken } from "../../services/token.services";
+import { deleteUserId } from "../../services/userId.services";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ setToken }) => {
     const history = useHistory();
+    const { token } = useToken();
 
     return (
         <header className="page--header">
@@ -17,12 +21,18 @@ const Header = () => {
             </nav>
 
             <button
-                onClick={() =>
-                    // Remove bearer token
-                    history.push("/login")
-                }
+                onClick={() => {
+                    if (token) {
+                        deleteToken();
+                        deleteUserId();
+                        setToken(getToken());
+                        history.push("/");
+                    } else {
+                        history.push("/login");
+                    }
+                }}
             >
-                Login
+                {token ? "Logout" : "Login"}
             </button>
         </header>
     );

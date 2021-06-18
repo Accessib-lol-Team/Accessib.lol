@@ -4,7 +4,7 @@ import "./ContentPage.css";
 const ContentPage = (props) => {
     return (
         <div>
-            <Header />
+            <Header setToken={props.setToken} />
 
             <main className="content">{props.children}</main>
         </div>

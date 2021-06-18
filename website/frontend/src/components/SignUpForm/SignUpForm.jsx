@@ -17,7 +17,7 @@ const SignUpForm = ({ handleSignUpSubmit }) => {
             >
                 <input type="text" placeholder="username" />
 
-                <input type="email" placeholder="emails" />
+                <input type="email" placeholder="email" />
 
                 <input type="password" placeholder="password" />
 
