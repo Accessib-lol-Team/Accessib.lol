@@ -17,15 +17,7 @@ const SignUp = ({ setToken }) => {
         });
 
         if (data.id) {
-            const loginData = await postLogin({
-                email: email,
-                password: password,
-            });
-
-            if (loginData.accessToken) {
-                setToken(loginData.accessToken);
-                history.push("/profile");
-            }
+            history.push("/profile");
         } else {
             alert("Incorrect form info");
         }
