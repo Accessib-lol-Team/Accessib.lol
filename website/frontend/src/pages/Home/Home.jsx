@@ -18,7 +18,12 @@ const Home = () => {
             </div>
 
             <div className="external-buttons">
-                <button className="external-button">Download App</button>
+                <LinkButton
+                    href="https://github.com/Accessib-lol-Team/Accessib.lol/blob/main/overwolf-dist.zip"
+                    external
+                >
+                    Overwolf App
+                </LinkButton>
 
                 <LinkButton
                     href="https://github.com/Accessib-lol-Team/Accessib.lol"
@@ -27,7 +32,10 @@ const Home = () => {
                     Github Repo
                 </LinkButton>
 
-                <LinkButton href="https://pridemakers.devpost.com/" external>
+                <LinkButton
+                    href="https://devpost.com/software/accessib-lol"
+                    external
+                >
                     Devpost Link
                 </LinkButton>
             </div>
