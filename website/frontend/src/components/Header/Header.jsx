@@ -30,10 +30,8 @@ const Header = ({ setToken }) => {
                         deleteToken();
                         deleteUserId();
                         setToken(getToken());
-                        history.push("/");
-                    } else {
-                        history.push("/login");
                     }
+                    history.push("/login");
                 }}
             >
                 {token ? "Logout" : "Login"}
