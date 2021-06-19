@@ -2,6 +2,9 @@
 
 Accessib.lol seeks to augment the League of Legends in-game experience to provide validation to members of the LGBTQ+ community and other minority groups. Accessib.lol includes a website and desktop Overwolf companion app, enabling users to extend their client for more well-rounded gameplay.
 
+**Demo Video:**
+[https://www.youtube.com/watch?v=Xeds_n0SROU](https://www.youtube.com/watch?v=Xeds_n0SROU)
+
 **Authors:**
 
 [Riley Abrahamson _(he/him)_](https://www.rileyabrahamson.com/)
