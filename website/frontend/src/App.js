@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
+import Demo from "./pages/Demo";
 import useUserId from "./hooks/useUserId";
 import useToken from "./hooks/useToken";
 import "./App.css";
@@ -27,6 +28,15 @@ function App() {
                     path="/signup"
                     render={() => (
                         <SignUp setToken={setToken} setUserId={setUserId} />
+                    )}
+                />
+                <Route
+                    exact={true}
+                    path="/demo"
+                    component={() => (
+                        <ContentPage setToken={setToken}>
+                            <Demo />
+                        </ContentPage>
                     )}
                 />
                 <AuthRoute
